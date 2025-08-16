@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receipt</title>
+    <link rel="website icon" href="img\wellcome.jpg">
+    <link rel="stylesheet" href="receipt.css">
+</head>
+<body>
+    <div class="receipt">
+        <h1>Receipt</h1>
+        <div class="receipt-details">
+            <p><strong>Date:</strong> January 31, 2023</p>
+            <p><strong>Customer:</strong> John Doe</p>
+        </div>
+        <table class="receipt-items">
+            <tr>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+            <tr>
+                <td>Product 1</td>
+                <td>2</td>
+                <td>$10.00</td>
+                <td>$20.00</td>
+            </tr>
+            <tr>
+                <td>Product 2</td>
+                <td>1</td>
+                <td>$15.00</td>
+                <td>$15.00</td>
+            </tr>
+            <tr>
+                <td colspan="3"><strong>Total</strong></td>
+                <td><strong>$35.00</strong></td>
+            </tr>
+        </table>
+        <button class="print-button" onclick="window.print()">Print Receipt</button>
+        <a href="index_addmin.html" class="button">Back</a>
+    </div>
+</body>
+</html>

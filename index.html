@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wellcome Dream Cafe</title>
+    <link rel="website icon" href="img\wellcome.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" >
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@100;400&family=Playfair+Display:wght@500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700&display=swap');
+*{
+    font-family: 'Nunito', sans-serif;
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .2s linear;
+    user-select: none;
+    background-color: #2a201c;
+}
+html{
+    font-size: 62.5%;
+}
+section{
+    padding: 2rem 5%;
+}
+.header{
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    z-index: 2;
+}
+.header .logo img{
+    border-radius: 15px;
+    width: 45px;
+    height: 45px;
+}
+.header .navbar #close{
+    display: none;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    cursor: pointer;
+    font-size: 3rem;
+    color: #fff;
+}
+.header .navbar a{
+    font-size: 2rem;
+    margin-right: 2rem;
+    color: #fff;
+    transition: transform 0.5s ease;
+}
+.header .navbar a:hover{
+    color: #d3ad7f;
+}
+.header #menu{
+    display: none;
+    cursor: pointer;
+    font-size: 2.5rem;
+    color: #fff;
+}
+.home{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+.home .content{
+    flex: 1 1 40rem;
+}
+.home .content .title{
+    margin-top: 20%;
+    font-size: 6rem;
+    color: #fff;
+    text-transform: uppercase;
+}
+.home .content .title span{
+    text-transform: uppercase;
+    color: #d3ad7f;
+}
+.home .content .description{
+    font-size: 2rem;
+    font-weight: lighter;
+    line-height: 1.8;
+    padding: 1rem 0;
+    color: #fff;
+}
+.home .content .btn{
+    margin: 1rem;
+    display: inline-block;
+    padding: .9rem 3rem;
+    font-size: 1.7rem;
+    color: #fff;
+    background: #d3ad7f;
+    cursor: pointer;
+}
+.home .content .btn:hover{
+    letter-spacing: .2rem;
+}
+.home .imge{
+    flex: 1 1 40px;
+}
+.home .imge img{
+    width: 100%;
+    max-width: 100%;
+    margin-top: 25%;
+}
+.about{
+    margin-top: 5%;
+    margin-bottom: 10%;
+    background-repeat: repeat-y;
+    background-position: center top;
+}
+.about .row{
+    padding: 20px;
+    display: flex;
+    align-items: center; 
+}
+.about .row .imge{
+    flex: 1 1 55rem;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+}
+.about .row .imge img{
+    width: 50rem;
+    height: auto;
+    max-width: 100%;
+}
+.about .row .content{
+    flex: 40rem;
+    margin-top: 100px; 
+}
+.about .row .content h3{
+    color: #d3ad7f;
+    font-size: 3rem;
+}
+.line{
+    margin-top: 20px;
+    margin-bottom: 25px;
+    width: 100px;
+    height: 3px;
+    background: #FBECD9;
+}
+.about .row .content p{
+    color: #fff;
+    font-size: 1.6rem;
+    line-height: 1.8;
+    flex: 1;
+}
+.menu{
+    text-align: center;
+    margin: 30px;
+}
+h1{
+    margin-right: 25px;
+    text-transform: uppercase;
+    font-size: 40px;
+    color: #d3ad7f;
+}
+.flip{
+    display: flex;
+    flex-direction: row; 
+}
+.flip-desserts{
+    display: flex;
+    flex-direction: row;
+}
+.flip-card{
+    width: 250px;
+    height: 250px;
+    perspective: 1000px;
+}
+.flip-card-inner{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner{
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 16px;
+}
+
+.flip-card-front{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flip-card-front img{
+    width: 220px;
+    height: 220px;
+    margin-top: 1rem;
+    border-radius: 10%;
+}
+
+.flip-card-back{
+    color: #d3ad7f;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.flip-card-back img{
+    width: 140px;
+    height: 140px;
+    margin-top: 1rem;
+    border-radius: 10%;
+}
+.flip-card-back h2{
+    color: #D3B197;
+    margin-bottom: 0.3rem;
+}
+.flip-card-back h3{
+    color: #D3B197;
+    margin-bottom: 0.3rem;
+}
+
+.flip-card-back .btn{
+    font-size: 16px;
+    position: relative;
+    display: inline-block;
+    color: #CD9062;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    padding-bottom: 10%;
+}
+.flip-card-back .btn::before{
+    content: " ";
+    position: absolute;
+    bottom: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+.flip-card-back .btn:hover::before{
+    transform: scaleX(1);
+}
+#container{
+    background-color: #D3B197;
+    height: auto;
+    width: 100%;
+    font-size: 18px;
+    padding-top: 40px;
+    text-align: center;
+    color: #CD9062;
+}
+.row h4{
+    text-transform: uppercase;
+}
+
+@media (max-width:991px){
+    html{
+        font-size: 55%;
+    }
+    .header{
+        padding: 2rem;
+    }
+    section{
+        padding: 2rem;
+    }
+}
+@media (max-width:768px){
+    .header #menu{
+        display: inline-block;
+    }
+    .header .navbar{
+        position: fixed;
+        top: 0; right: -105%;
+        width: 30rem;
+        background: rgba(255,255,255,0.2);
+        backdrop-filter: blur(50px);
+        transition: .5s;
+        height: 100%;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        z-index: 1200;
+    }
+    .header .navbar.active{
+        right: 0;
+    }
+    .header .navbar #close{
+        display: block;
+    }
+    .header .navbar a{
+        display: block;
+        margin: 1rem 0;  
+        text-align: center;
+        font-size: 3rem;
+    }
+    .home .content{
+        padding-top: 9.5rem;
+    }
+    .home .imge img{
+        width: 368px;
+    }
+    .home .content .title{
+        font-size: 4rem;
+    }
+    .home .content .description{
+        font-size: 1.6rem;
+    }
+}
+@media (max-width:450px){
+    html{
+        font-size: 50%;
+    }
+}
+</style>
+</head>
+<body>
+  <header class="header">
+    <a class="logo">
+      <img src="img\wellcome.jpg" >
+    </a>
+    <nav class="navbar">
+      <div id="close" class="fas fa-time"></div>
+      <a class="nav_item">home</a>
+      <a href="reserve.php" class="nav_item">reserve</a>
+      <a href="menupage.html" class="nav_item">menu</a>
+      <a href="login.php" class="nav_item">admin</a>
+    </nav>
+    <div id="menu" class="fas fa-bars"></div>
+  </header>
+
+  <section class="home">
+    <div class="content">
+      <h1 class="title">DREAM<span>CAFE</span>COFFEE<span>IN THE MORNING</span></h1>
+      <p class="description">Welcome to our cafe! Indulge in delicious coffee and pastries, always awaiting your presence. Experience a cozy atmosphere and exciting service. Enjoy a cup of hot or cold coffee, along with delectable desserts for an unforgettable taste. Our cafe is delighted to welcome you every day!</p>
+      <a href="menupage.html" class="btn">Get Order</a>
+    </div>
+    <div class="imge">
+        <img src="img\worker.png" alt="" data-speed="-3" class="move">
+    </div> 
+
+    <section class="about" id="about">
+      <div class="container">
+        <div class="row">
+          <div class="imge">
+            <img src="img/cafe2.jpg" alt="About Our Cafe">
+          </div>
+          <div class="content">
+            <h3>What Sets Our Cafe Apart from Others?</h3>
+            <div class="line"></div>
+            <p>Experience the rich aroma and bold flavors of coffee and tea. Indulge in our delicious cakes and charming cookies. Join us for a delightful dining experience at our cafe!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="menu-container" id="menu-container">
+      <h1 class="menu">menu</h1>
+      <div class="flip-desserts">
+        <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                  <img src="img\box1.jpg" alt="">
+              </div>
+              <div class="flip-card-back">
+                <img src="img\box1.jpg" alt="">
+                <h2>Squash</h2>
+                <h3>50.00 บาท</h3>
+                <a href="cart.php?product=Squash&price=50.00" class="btn">Add to cart</a>
+              </div>
+            </div>
+          </div>
+    
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                  <img src="img\water1.jpg" alt="">
+              </div>
+              <div class="flip-card-back">
+                <img src="img\water1.jpg" alt="">
+                <h2>Juice soda</h2>
+                <h3>45.00 บาท</h3>
+                <a href="cart.php?product=Juice soda&price=45.00" class="btn">Add to cart</a>
+              </div>
+            </div>
+          </div>
+    
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                  <img src="img\coco&pancake.jpg" alt="">
+              </div>
+              <div class="flip-card-back">
+                <img src="img\coco&pancake.jpg" alt="">
+                <h2>Coco&Pancake</h2>
+                <h3>100.00 บาท</h3>
+                <a href="cart.php?product=Coco&Pancake&price=100.00" class="btn">Add to cart</a>
+              </div>
+            </div>
+          </div>
+    
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                  <img src="img\cookie5.jpg" alt="">
+              </div>
+              <div class="flip-card-back">
+                <img src="img\cookie5.jpg" alt="">
+                <h2>Cookie&Candy</h2>
+                <h3>65.00 บาท</h3>
+                <a href="cart.php?product=Cookie&Candy&price=65.00" class="btn">Add to cart</a>
+              </div>
+            </div>
+          </div>
+    </div>
+    </section>
+
+
+    <footer>
+        <div class="container" id="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>About Our Café</h4>
+                    <p>Welcome to Dream Café , your cozy retreat for coffee lovers. We take pride in serving the finest coffee blends from around the world, paired with delicious pastries and a warm ambiance.</p>
+                </div>
+                <div class="col-md-3">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">Menu</a></li>
+                        <li><a href="#">Events</a></li>
+                        <li><a href="#">Locations</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h4>Connect With Us</h4>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-footer">
+            <div class="container" id="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        &copy; 2023 Dream Café. All Rights Reserved.
+                    </div>
+                    <div class="col-md-6 text-right">
+                        Designed by Jiraphat Hangsup
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+       
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <script src="script.js"></script>
+</body>
+</html>

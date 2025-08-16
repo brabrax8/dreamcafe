@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wellcome Dream Cafe</title>
+    <link rel="website icon" href="img\wellcome.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" >
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <nav class="navbar bg-body-tertiary">
+      <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@100;400&family=Playfair+Display:wght@500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700&display=swap');
+*{
+    font-family: 'Nunito', sans-serif;
+    margin: 2px; padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .2s linear;
+    user-select: none;
+}
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background:  #2a201c;
+}
+.nav-back {
+    margin: 20px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+}
+  
+.nav-back a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+}
+.nav_item i{
+    font-size: 35px;
+}
+.nav-back a:hover{
+    color: #CD9062;
+}
+h1{
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 30px;
+    font-size: 50px;
+    color: #d3ad7f;
+}
+#list{
+    margin-top: 20%;
+}
+.line {
+    margin-top: 5px;
+    margin-bottom: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+    height: 3px;
+    background: #FBECD9;
+}
+#css{
+    text-transform: uppercase;
+    color: #fff;
+}
+.gallery{
+    width: 100%;
+}
+.gallery-container{
+    align-items: center;
+    display: flex;
+    height: 400px;
+    margin: 0 auto;
+    max-width: 1000px;
+    position: relative;
+}
+.gallery-item{
+    height: 200px;
+    opacity: 0;
+    position: absolute;
+    transition: all 0.3s ease-in-out;
+    width: 330px;
+    z-index: 0;
+    border-radius: 15px;
+    background-size: contain;
+}
+.gallery-item-1{
+    left: 15%;
+    opacity: .4;
+    transform: translateX(-50%);
+}
+.gallery-item-2, .gallery-item-4{
+    height: 250px;
+    opacity: 0.8;
+    width: 380px;
+    z-index: 1;
+}
+.gallery-item-2{
+    left: 30%;
+    transform: translateX(-50%);
+}
+.gallery-item-3{
+    box-shadow: -2px 5px 33px 6px rgba(0, 0, 0, 0.35);
+    height: 300px;
+    opacity: 1;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 430px;
+    z-index: 2;
+}
+.gallery-item-4{
+    left: 70%;
+    transform: translateX(-50%);
+}
+.gallery-item-5{
+    left: 85%;
+    opacity: .4;
+    transform: translateX(-50%);
+}
+.gallery-controls{
+    display: flex;
+    justify-content: center;
+    margin: -10px 0;
+    height: 100px;
+}
+.gallery-controls button{
+    color: #CBA377;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    font-size: 20px;
+    margin: 0 50px;
+    padding: 0 12px;
+    text-transform: uppercase;
+}
+.gallery-controls button:focus{
+    outline: none;
+}
+.gallery-controls-previous{
+    position: relative;
+    color: #CBA377;
+}
+.gallery-controls-previous::before{
+    border: solid #CBA377;
+    border-width: 0 5px 5px 0;
+    content: '';
+    display: inline-block;
+    height: 5px;
+    left: -30px;
+    padding: 10px;
+    position: absolute;
+    top: 25%;
+    transform: rotate(135deg) translate(-50%);
+    transition: left 0.15s ease-in-out;
+    width: 5px;
+}
+.gallery-controls-previous:hover::before{
+    left: -40px;
+}
+.gallery-controls-next{
+    position: relative;
+}
+.gallery-controls-next::before{
+    border: solid #CBA377;
+    border-width: 0 5px 5px 0;
+    content: '';
+    display: inline-block;
+    height: 5px;
+    padding: 10px;
+    position: 10px;
+    right: -30px;
+    top: 45;
+    transform: rotate(-45deg) translateY(-50%);
+    transition: right 0.15s ease-in-out;
+    width: 5px;
+}
+.gallery-controls-nexter:hover::before{
+    right: -40px;
+}
+.gallery-nav{
+    bottom: -15px;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    position: absolute;
+    width: 100%;
+}
+.gallery-nav li{
+    background: #CBA377;
+    border-radius: 50%;
+    height: 10px;
+    margin: 0 16px;
+    width: 10px;
+}
+.gallery-nav li.gellery-item-selected{
+    background: #CBA377;
+}
+.flip{
+    display: flex;
+    flex-direction: row; 
+}
+.flip-desserts{
+    display: flex;
+    flex-direction: row;
+}
+.flip-card{
+    width: 250px;
+    height: 250px;
+    perspective: 1000px;
+}
+.flip-card-inner{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner{
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 16px;
+}
+
+.flip-card-front{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flip-card-front img{
+    width: 220px;
+    height: 220px;
+    margin-top: 1rem;
+    border-radius: 10%;
+}
+
+.flip-card-back{
+    color: #d3ad7f;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.flip-card-back img{
+    width: 140px;
+    height: 140px;
+    margin-top: 1rem;
+    border-radius: 10%;
+}
+.flip-card-back h2{
+    color: #D3B197;
+    margin-bottom: 0.3rem;
+}
+.flip-card-back h3{
+    color: #D3B197;
+    margin-bottom: 0.3rem;
+}
+
+.flip-card-back .btn{
+    font-size: 16px;
+    position: relative;
+    display: inline-block;
+    color: #CD9062;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    padding-bottom: 10%;
+}
+.flip-card-back .btn::before{
+    content: " ";
+    position: absolute;
+    bottom: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+.flip-card-back .btn:hover::before{
+    transform: scaleX(1);
+}
+
+      </style>
+</head>
+<body>
+  <div class="nav-back">
+    <a href="index.html"><i class='bx bx-arrow-back'></i>Back Home</a>
+  </div>
+    <h1>popular <span id="css">menu</span></h1>
+    <div class="gallery">
+        <div class="gallery-container">
+            <img class="gallery-item gellery-item-1" src="img\box1.jpg" data-index="1" >
+            <img class="gallery-item gellery-item-2" src="img\box2.jpg" data-index="2">
+            <img class="gallery-item gellery-item-3" src="img\coco&pancake.jpg" data-index="3">
+            <img class="gallery-item gellery-item-4" src="img\cookie5.jpg" data-index="4">
+            <img class="gallery-item gellery-item-5" src="img\cookies.jpg" data-index="5">
+        </div>
+        <div class="gallery-controls"></div>
+    </div>
+
+    <form action="add_to_cart.php" method="get">
+    <h1 id="list"><span id="css">coffee </span>beverages</h1>
+    <div class="line"></div>
+    <div class="flip">
+        <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                  <img src="coffee\coffee1.jpg" alt="">
+              </div>
+              <div class="flip-card-back">
+                <img class="table empty" src="coffee\coffee1.jpg" id="1">
+                <h2 name="product">Affogato</h2>
+                <h3 name="price">50.00 บาท</h3>
+                <a href="add_to_cart.php?product=Affogato&price=50.00" class="btn add-to-cart">Add to cart</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                  <img src="coffee\coffee2.jpg" alt="">
+              </div>
+              <div class="flip-card-back">
+                <img src="coffee\coffee2.jpg" alt="">
+                <h2>Macchiato coffee</h2>
+                <h3>50.00 บาท</h3>
+                <a href="cart.php?product=Macchiato coffee&price=50.00" class="btn">Add to cart</a>
+              </div>
+            </div>
+          </div>
+    
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                  <img src="coffee\coffee3.jpg" alt="">
+              </div>
+              <div class="flip-card-back">
+                <img src="coffee\coffee3.jpg" alt="">
+                <h2>Mocha coffee</h2>
+                <h3>50.00 บาท</h3>
+                <a href="cart.php?product=Mocha coffee&price=50.00" class="btn">Add to cart</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                  <img src="coffee\coffee4.jpg" alt="">
+              </div>
+              <div class="flip-card-back">
+                <img src="coffee\coffee4.jpg" alt="">
+                <h2>Cappuccino coffee</h2>
+                <h3>50.00 บาท</h3>
+                <a href="cart.php?product=Cappuccino coffee&price=50.00" class="btn">Add to cart</a>
+              </div>
+            </div>
+          </div>
+    </div>
+
+    <div class="flip">
+        <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                  <img src="coffee\coffee5.jpg" alt="">
+              </div>
+              <div class="flip-card-back">
+                <img src="coffee\coffee5.jpg" alt="">
+                <h2>Latte coffee</h2>
+                <h3>50.00 บาท</h3>
+                <a href="cart.php?product=Latte coffee&price=50.00" class="btn">Add to cart</a>
+              </div>
+            </div>
+          </div>
+    
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                  <img src="coffee\coffee6.jpg" alt="">
+              </div>
+              <div class="flip-card-back">
+                <img src="coffee\coffee6.jpg" alt="">
+                <h2>Latte coffee</h2>
+                <h3>55.00 บาท</h3>
+                <a href="cart.php?product=Latte coffee&price=55.00" class="btn">Add to cart</a>
+              </div>
+            </div>
+          </div>
+        
+    
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                  <img src="coffee\coffee7.jpg" alt="">
+              </div>
+              <div class="flip-card-back">
+                <img src="coffee\coffee7.jpg" alt="">
+                <h2>Americano</h2>
+                <h3>50.00 บาท</h3>
+                <a href="cart.php?product=Americano&price=50.00" class="btn">Add to cart</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                  <img src="coffee\coffee8.jpg" alt="">
+              </div>
+              <div class="flip-card-back">
+                <img src="coffee\coffee8.jpg" alt="">
+                <h2>Americano orange</h2>
+                <h3>30.00 บาท</h3>
+                <a href="cart.php?product=Americano orange&price=30.00" class="btn">Add to cart</a>
+              </div>
+            </div>
+          </div>
+    </div>
+
+    <h1 id="list"><span id="css">tea </span>beverages</h1>
+    <div class="line"></div>
+    <div class="flip-desserts">
+      <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <img src="tea\tea1.jpg" alt="">
+            </div>
+            <div class="flip-card-back">
+              <img src="tea\tea1.jpg" alt="">
+              <h2>White Tea</h2>
+              <h3>30.00 บาท</h3>
+              <a href="cart.php?product=White Tea&price=30.00" class="btn">Add to cart</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <img src="tea\tea2.jpg" alt="">
+            </div>
+            <div class="flip-card-back">
+              <img src="tea\tea2.jpg" alt="">
+              <h2>Green Tea</h2>
+              <h3>50.00 บาท</h3>
+              <a href="cart.php?product=Green Tea&price=50.00" class="btn">Add to cart</a>
+            </div>
+          </div>
+        </div>
+  
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <img src="tea\tea3.jpg" alt="">
+            </div>
+            <div class="flip-card-back">
+              <img src="tea\tea3.jpg" alt="">
+              <h2>Herbal Tea</h2>
+              <h3>30.00 บาท</h3>
+              <a href="cart.php?product=Herbal Tea&price=30.00" class="btn">Add to cart</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <img src="tea\tea4.jpg" alt="">
+            </div>
+            <div class="flip-card-back">
+              <img src="tea\tea4.jpg" alt="">
+              <h2>Black Tea</h2>
+              <h3>30.00 บาท</h3>
+              <a href="cart.php?product=Black Tea&price=30.00" class="btn">Add to cart</a>
+            </div>
+          </div>
+        </div>
+  </div>
+
+  <div class="flip">
+      <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <img src="tea\tea5.jpg" alt="">
+            </div>
+            <div class="flip-card-back">
+              <img src="tea\tea5.jpg" alt="">
+              <h2>Flavored Tea</h2>
+              <h3>55.00 บาท</h3>
+              <a href="cart.php?product=Flavored Tea&price=55.00" class="btn">Add to cart</a>
+            </div>
+          </div>
+        </div>
+  
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <img src="tea\tea6.jpg" alt="">
+            </div>
+            <div class="flip-card-back">
+              <img src="tea\tea6.jpg" alt="">
+              <h2>Flavored Tea</h2>
+              <h3>35.00 บาท</h3>
+              <a href="cart.php?product=Flavored Tea&price=35.00" class="btn">Add to cart</a>
+            </div>
+          </div>
+        </div>
+      
+  
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <img src="tea\tea9.jpg" alt="">
+            </div>
+            <div class="flip-card-back">
+              <img src="tea\tea9.jpg" alt="">
+              <h2>english breakfast tea</h2>
+              <h3>30.00 บาท</h3>
+              <a href="cart.php?product=English breakfast tea&price=30.00" class="btn">Add to cart</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <img src="tea\tea8.jpg" alt="">
+            </div>
+            <div class="flip-card-back">
+              <img src="tea\tea8.jpg" alt="">
+              <h2>lotus tea</h2>
+              <h3>40.00 บาท</h3>
+              <a href="cart.php?product=Lotus tea&price=40.00" class="btn">Add to cart</a>
+            </div>
+          </div>
+        </div>
+  </div>
+
+  <h1 id="list"><span id="css">des</span>serts</h1>
+  <div class="line"></div>
+  <div class="flip-desserts">
+    <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+              <img src="desserts\dessert1.jpg" alt="">
+          </div>
+          <div class="flip-card-back">
+            <img src="desserts\dessert1.jpg" alt="">
+            <h2>brownie</h2>
+            <h3>30.00 บาท</h3>
+            <a href="cart.php?product=Brownie&price=30.00" class="btn">Add to cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+              <img src="desserts\dessert2.jpg" alt="">
+          </div>
+          <div class="flip-card-back">
+            <img src="desserts\dessert2.jpg" alt="">
+            <h2>mixed berry tart</h2>
+            <h3>40.00 บาท</h3>
+            <a href="cart.php?product=Mixed berry tart&price=40.00" class="btn">Add to cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+              <img src="desserts\dessert3.jpg" alt="">
+          </div>
+          <div class="flip-card-back">
+            <img src="desserts\dessert3.jpg" alt="">
+            <h2>matcha cake</h2>
+            <h3>30.00 บาท</h3>
+            <a href="cart.php?product=Matcha cake&price=30.00" class="btn">Add to cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+              <img src="desserts\dessert4.jpg" alt="">
+          </div>
+          <div class="flip-card-back">
+            <img src="desserts\dessert4.jpg" alt="">
+            <h2>Tiramisu</h2>
+            <h3>35.00 บาท</h3>
+            <a href="cart.php?product=Tiramisu&price=35.00" class="btn">Add to cart</a>
+          </div>
+        </div>
+      </div>
+</div>
+
+<div class="flip">
+    <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+              <img src="desserts\dessert5.jpg" alt="">
+          </div>
+          <div class="flip-card-back">
+            <img src="desserts\dessert5.jpg" alt="">
+            <h2>strawberry cake</h2>
+            <h3>40.00 บาท</h3>
+            <a href="cart.php?product=Strawberry cake&price=40.00" class="btn">Add to cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+              <img src="desserts\dessert6.jpg" alt="">
+          </div>
+          <div class="flip-card-back">
+            <img src="desserts\dessert6.jpg" alt="">
+            <h2>raspberry bavarian</h2>
+            <h3>40.00 บาท</h3>
+            <a href="cart.php?product=Raspberry bavarian&price=40.00" class="btn">Add to cart</a>
+          </div>
+        </div>
+      </div>
+    
+
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+              <img src="desserts\dessert7.jpg" alt="">
+          </div>
+          <div class="flip-card-back">
+            <img src="desserts\dessert7.jpg" alt="">
+            <h2>Lemon Cupcakes</h2>
+            <h3>30.00 บาท</h3>
+            <a href="cart.php?product=Lemon Cupcakes&price=30.00" class="btn">Add to cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+              <img src="desserts\dessert8.jpg" alt="">
+          </div>
+          <div class="flip-card-back">
+            <img src="desserts\dessert8.jpg" alt="">
+            <h2>Biscoff Cheesecake</h2>
+            <h3>30.00 บาท</h3>
+            <a href="cart.php?product=Biscoff Cheesecake&price=30.00" class="btn">Add to cart</a>
+          </div>
+        </div>
+      </div>
+</div>
+</form>
+
+
+    <script src="menu.js"></script>
+</body>
+</html>
